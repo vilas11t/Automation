@@ -18,7 +18,7 @@ public class WindowHandlingPractice {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //implicit wait
 	}
 	
 	@Test
@@ -27,6 +27,7 @@ public class WindowHandlingPractice {
 		String parentWindowId=driver.getWindowHandle();
 		
 		driver.findElement(By.id("openwindow")).click();
+		
 		
 		Set<String> allOpenedWindowIds=driver.getWindowHandles();
 		

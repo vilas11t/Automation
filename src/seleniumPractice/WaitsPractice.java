@@ -1,37 +1,48 @@
 package seleniumPractice;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.testng.annotations.Test;
 
 public class WaitsPractice {
 	static WebDriver driver;
-	@BeforeClass
+	@Test
 	void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.rediff.com");
+		
 		driver.findElement(By.xpath("//a[@class='signin']")).click();
-		WebElement userName=driver.findElement(By.xpath("//a[@class='signin']"));
-		WebDriverWait wait=new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='signin']")));
+		
+		WebElement userName;
+		
+		Wait<WebDriver> wait=new FluentWait<WebDriver>(driver)
+				.withTimeout(10,TimeUnit.SECONDS)
+				.pollingEvery(2,TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
+		
+				
+		
+		//WebDriverWait wait=new WebDriverWait(driver, 10);
+		
+		//userName=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login1']")));
+		
 		driver.findElement(By.xpath("//input[@id='login1']")).sendKeys("Username");
 		
 	}
 	
 	
-	void waitForVisibilityOfElement(WebElement element,int timeOut) {
-		WebDriverWait wait=new WebDriverWait(driver, timeOut);
-		wait.until(ExpectedConditions.visibilityOf(element));
-	}
+	
 	
 	
 	

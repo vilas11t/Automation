@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="Suite1">
+  <test thread-count="5" name="Test1">
     <classes>
+      <class name="seleniumPractice.WindowHandlingPractice"/>
       <class name="seleniumPractice.ActionClass"/>
+      <class name="seleniumPractice.WaitsPractice"/>
+      <class name="seleniumPractice.TestNGPractice"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> <!-- Test1 -->
+</suite> <!-- Suite1 -->
