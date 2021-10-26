@@ -6,24 +6,25 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import basePackage.BaseClass;
+import pomClasses.AmazonHomePage;
 import pomClasses.HomePage;
 
 public class AmazonDemo extends BaseClass{
 	static WebDriver driver;
-	static HomePage homePage;
+	static AmazonHomePage amazonhomepage;
 	
 	@BeforeClass
 	void beforclass() {
 		driver=driverInitialization();
-		homePage=new HomePage(driver);
+		amazonhomepage=new AmazonHomePage(driver);
 	}
 	
 	@Test
 	void loginLinkVerificationOnHomePage() {
-		String signInexpectedText="Hello, in";
+		String signInexpectedText="Hello, Sign in";
 		driver.get("https://www.amazon.com/");
-		Assert.assertTrue(homePage.loginPageLink1().isDisplayed());	
-		String signInactualText=homePage.loginPageLink1().getText();
+		Assert.assertTrue(amazonhomepage.loginPageLink1().isDisplayed());	
+		String signInactualText=amazonhomepage.loginPageLink1().getText();
 		Assert.assertEquals(signInactualText, signInexpectedText,"Actual value is not matching");
 	}
 }
