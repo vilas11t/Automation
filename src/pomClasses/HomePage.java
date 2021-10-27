@@ -26,8 +26,12 @@ public class HomePage {
 	public WebElement businessEmailLink() {
 			return driver.findElement(businessEmail);
 		}
+	 public By loginLink1=By.xpath("//span[@id=\"nav-link-accountList-nav-line-1\"]");
 	 
-	 
+	 public WebElement loginPageLink1() {
+			return driver.findElement(loginLink1);
+		 }
+		 
 	 
 
 }
