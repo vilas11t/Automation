@@ -17,6 +17,7 @@ public class HomePage {
 	public By loginLink=By.xpath("//a[@class='signin']");
 	public By businessEmail=By.xpath("//a[@title='Lightning fast business email hosting']");
 	public By covidTabs=By.xpath("//div[@id='tabtable']/div");
+	public By mainTabs=By.xpath("//div[@class='navbar cor_margin']//li");
 	 
 	 
 	public WebElement loginPageLink() {
@@ -36,6 +37,10 @@ public class HomePage {
 	 
 	 public List<WebElement> getcovidTabs() {
 			return driver.findElements(covidTabs);
+		 }
+	 
+	 public List<WebElement> getmainTabs() {
+			return driver.findElements(mainTabs);
 		 }
 	 
 	 
