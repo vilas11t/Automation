@@ -1,5 +1,7 @@
 package pomClasses;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +16,7 @@ public class HomePage {
 	 
 	public By loginLink=By.xpath("//a[@class='signin']");
 	public By businessEmail=By.xpath("//a[@title='Lightning fast business email hosting']");
-	 
+	public By covidTabs=By.xpath("//div[@id='tabtable']/div");
 	 
 	 
 	public WebElement loginPageLink() {
@@ -31,6 +33,14 @@ public class HomePage {
 	 public WebElement loginPageLink1() {
 			return driver.findElement(loginLink1);
 		 }
+	 
+	 public List<WebElement> getcovidTabs() {
+			return driver.findElements(covidTabs);
+		 }
+	 
+	 
+	 
+	 
 		 
 	 
 
