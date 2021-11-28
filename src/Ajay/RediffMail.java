@@ -52,7 +52,7 @@ public class RediffMail extends BaseClass {
 		implicitlyWait(20);
 		driver.get("https://www.rediff.com/");
 		
-		List<WebElement>tabs=homePage.getcovidTabs();
+		List<WebElement>tabs=homePage.getmainTabs();
 		
 		Assert.assertEquals(tabs.size(), 9,"tabs not displayed");
 		
